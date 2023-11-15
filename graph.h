@@ -10,11 +10,11 @@ typedef struct link_ link_t;
 typedef struct glthread_ {}glthread_t;
 
 
-typedef struct node {
+struct node_ {
     char name[32];
-} node_t;
+};
 
-typedef struct inteface_ {
+typedef struct interface_ {
     char name[INTERFACE_NAME_SIZE];
     struct node_ *node;
     struct link_ *link;
