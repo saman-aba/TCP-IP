@@ -12,8 +12,22 @@ insert_link(node_t *node1,
     link_t *link = calloc(1, sizeof(link_t));
 
     strncpy(link->interface1.name,from_intf_name, INTERFACE_NAME_SIZE);
-    link->interface1.name[INTERFACE_NAME_SIZE] = '\0';
+    link->interface1.name[INTERFACE_NAME_SIZE - 1] = '\0';
+    strncpy(link->interface2.name, to_intf_name, INTERFACE_NAME_SIZE);
+    link->interface2.name[INTERFACE_NAME_SIZE - 1] = '\0';
 
+    link->interface1.link = link;
+    link->interface2.link = link;
+
+    link->interface1.node = node1;
+    link->interface2.node = node2;
+
+    int empty_intf_slot;
+
+    empty_intf_slot = get_node_intf_available_slot(node1);
+    node1->intf[empty_intf_slot];
+    empty_intf_slot = get_node_intf_available_slot(node2);
+    node2->intf[empty_intf_slot];
 }
 graph_t *
 create_new_graph(char *topology_name)

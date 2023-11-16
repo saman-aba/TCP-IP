@@ -10,9 +10,14 @@ typedef struct link_ link_t;
 typedef struct glthread_ {}glthread_t;
 
 
-struct node_ {
-    char name[32];
-};
+typedef struct node_ {
+    char name[NODE_NAME_SIZE];
+    interface_t *intf[MAX_INTF_PER_NODE];
+    glthread_t graph_glue;
+    unsigned int udp_port_number;
+    int udp_sock_fd;
+
+} node_t;
 
 typedef struct interface_ {
     char name[INTERFACE_NAME_SIZE];
