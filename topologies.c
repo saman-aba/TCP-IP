@@ -1,7 +1,7 @@
-#include "graph.c"
+#include "graph.h"
 
-graph_ *
-build first_topo(){
+graph_t *
+build_first_topo(){
 
 	graph_t *topo = create_new_graph("Generic Graph");
 
